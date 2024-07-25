@@ -10,11 +10,11 @@ sudo apt install haproxy
 # edit config file
 server_config=\
 "
-frontend maskfacedcoder-frontend
+frontend lb-frontend
         bind *:80
         mode http
-        default_backend maskfacedcoder-backend
-backend maskfacedcoder-backend
+        default_backend lb-backend
+backend lb-backend
         balance roundrobin
         server 6229-web-01 52.91.192.35 check
         server 6229-web-02 54.82.120.200 check
